@@ -25,7 +25,7 @@ if [ ${#} -eq 0 ] || [ "${1:0:1}" = '-' ]; then
       echo "only one node started or cluster discovery timed-out" >&2
     fi
   fi
-  #[ -n "$TUTUM_ARGS" ] && TUTUM_ARGS+=( --bind all )
+  [ -n "$TUTUM_ARGS" ] && TUTUM_ARGS+=( --bind all --canonical-address $HOSTNAME)
   set -- rethinkdb "$@" "${TUTUM_ARGS[@]}"
 fi
 
